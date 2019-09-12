@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <title>Recipes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+  <div class="tab-panels">
+      <ul class="tabs">
+          <li rel="panel1" class="active">Chocolate Chip Cookies</li>
+          <li rel="panel2">Vanilla Cake</li>
+          <li rel="panel3">Creme Brulee</li>
+      </ul>
+
+      <div id="panel1" class="panel active">
+        <h5>Servings: 24 cookies</h5>
+        <h5>Bake and prep time: 40 minutes</h5>
+        <h3>Ingredients</h3>
+        <ul>
+          <li>Flour</li>
+          <li>Sugar</li>
+          <li>Butter</li>
+          <li>Chocolate chips</li>
+        </ul>
+        <h3>Instructions</h3>
+        <ol>
+          <li>Gather all ingredients and prep according to ingredient list.</li>
+          <li>Make cookie dough.</li>
+          <li>Bake cookies until they look edible.</li>
+          <li>Taste and hope you don't die.</li>
+        </ol>
+        <p>*Disclaimer: This recipe is not intended for baking purposes, only for shits and giggles.</p>
+      </div>
+      <div id="panel2" class="panel">
+        <p>Nothing here</p>
+      </div>
+      <div id="panel3" class="panel">
+        <p>Seriously, you're still looking. It's empty.</p>
+      </div>
+  </div>
+
+<script src="scripts/jquery-3.3.1.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+    $('.tab-panels .tabs li').on('click', function(){
+        // when tab panel gets clicked, we find our closest panel and make it into a var
+        var $panel=$(this).closest('.tab-panels');
+        // within the panel we find an active tab and render it inactive
+        $panel.find('li.active').removeClass('active');
+        // add active class to the tab that is onClick
+        $(this).addClass('active');
+        // on click of tab show panel corresponding to that
+        // it now selects the clicked on panel based on rel and displays that content
+        var panelToShow = $(this).attr('rel');
+        // hide current panel
+        $panel.find('.panel.active').hide(showNextPanel);
+        
+        // show new panel
+        function showNextPanel(){
+            $(this).removeClass('active');
+            $('#'+panelToShow).show(function(){
+                $(this).addClass('active');
+            });
+        }
+    }); 
+
+    $(function() {
+      var $tabButtonItem = $('#tab-button li'),
+          $tabSelect = $('#tab-select'),
+          $tabContents = $('.tab-contents'),
+          activeClass = 'is-active';
+
+      $tabButtonItem.first().addClass(activeClass);
+      $tabContents.not(':first').hide();
+
+      $tabButtonItem.find('a').on('click', function(e) {
+        var target = $(this).attr('href');
+
+        $tabButtonItem.removeClass(activeClass);
+        $(this).parent().addClass(activeClass);
+        $tabSelect.val(target);
+        $tabContents.hide();
+        $(target).show();
+        e.preventDefault();
+      });
+
+      $tabSelect.on('change', function() {
+        var target = $(this).val(),
+            targetSelectNum = $(this).prop('selectedIndex');
+
+        $tabButtonItem.removeClass(activeClass);
+        $tabButtonItem.eq(targetSelectNum).addClass(activeClass);
+        $tabContents.hide();
+        $(target).show();
+      });
+    });
+  });
+
+</script>
+</body>
+</html>

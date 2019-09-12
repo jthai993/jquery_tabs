@@ -1,0 +1,139 @@
+body{
+  margin: auto;
+  padding: 0;
+  font-family: "Open Sans", arial, sans-serif;
+}
+
+h3{
+  font-family: "Montserrat", arial, sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  padding-top: 1rem;
+}
+
+h5{
+  font-family: "Montserrat", arial, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+}
+
+.tab-panels{
+  width: 50%;
+  margin: auto;
+  padding: 0;
+}
+
+.tab-panels ul{
+    margin: 0;
+    padding: 0;
+}
+
+.tab-panels ul li{
+    list-style-type: none;
+    display: inline-block;
+    background: #999;
+    margin: 0;
+    padding: 3px 10px;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.tab-panels ul li:hover{
+    color: #fff;
+    background: #666;
+}
+
+.tab-panels ul li.active{
+    color: #fff;
+    background: #666;
+}
+
+#panel1 > ul > li{
+  display: list-item;
+  list-style-type: disc;
+  background: none;
+  color: #000000;
+  font-weight: normal;
+  cursor: none;
+  margin: 0 42px;
+  padding: 3px 0;
+}
+
+.tab-panels .panel{
+    display: none;
+    background: #f1f1f1;
+    padding: 30px;
+    border-radius: 0 10px 10px 10px;
+    min-height: 524px;
+}
+
+.tab-panels .panel.active{
+    display: block;
+}
+
+
+
+
+/* Second Tabbing */
+.tabs {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  #tab-button {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  #tab-button li {
+    display: table-cell;
+    width: 20%;
+  }
+  #tab-button li a {
+    display: block;
+    padding: .5em;
+    background: #eee;
+    border: 1px solid #ddd;
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+  }
+  #tab-button li:not(:first-child) a {
+    border-left: none;
+  }
+  #tab-button li a:hover,
+  #tab-button .is-active a {
+    border-bottom-color: transparent;
+    background: #fff;
+  }
+  .tab-contents {
+    padding: .5em 2em 1em;
+    border: 1px solid #ddd;
+  }
+  
+  .tab-button-outer {
+    display: none;
+  }
+  .tab-contents {
+    margin-top: 20px;
+  }
+  @media screen and (min-width: 640px) {
+    .tab-button-outer {
+      position: relative;
+      z-index: 2;
+      display: block;
+    }
+    .tab-select-outer {
+      display: none;
+    }
+    .tab-contents {
+      position: relative;
+      top: -1px;
+      margin-top: 0;
+    }
+  }
